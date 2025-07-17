@@ -9,14 +9,11 @@ License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
 
 A WP-CLI Command
-Create a custom WP-CLI command named like, `dmg-read-more search`
-This command will take optional date-range arguments like “date-before” and “date-after” If the dates are omitted, the
-command will default to the last 30 days.
-The command will execute a WP_Query search for Posts within the date range looking for posts containing the
-aforementioned Gutenberg block. Performance is key, this WP-CLI command will be tested against a database that has
-tens of millions records in the wp_posts table.
-The command will log to STDOUT all Post IDs for the matching results.
-If no posts are found, or any other errors encountered, output a log message.
+- This command will take optional date-range arguments like --start-date and --end-date 
+- If the dates are omitted, the command will default to the last 30 days.
+- The command will execute a WP_Query search for Posts within the date range looking for posts containing the a forementioned Gutenberg block names in the options --block-name
+- The command will log to STDOUT all Post IDs for the matching results.
+- If no posts are found, or any other errors encountered, output a log message.
 
 == Installation ==
 
@@ -26,12 +23,13 @@ create a directory in your theme
 ```
 drop dmg-query.php in this directory
 
-in functions.php 
+in functions.php or where you position the file in your file structure
 ```
 include_once __DIR__ . '/wp-cli/dmg-query.php';
 ```
 
 when this is done, on refresh you will be able to see select as a subcommand on the command
+
 ```
 wp
 ```
